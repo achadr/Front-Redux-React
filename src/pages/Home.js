@@ -14,19 +14,12 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       margin:"5px 20px",
     },
-    title : {
-        textAlign:"left",
-        margin:"10px"
+    addButton: {
+        width:"95%",
     },
-    button1 :{
-        left:"40%"
-    },
-    button2:{
-        width:"300px",
-        left:"40%"
+    title:{
+        marginLeft:5
     }
-  
-   
   }));
 
 
@@ -49,21 +42,28 @@ export default function Home() {
         
     }, [dispatch,properties, simulations])
     return (
-            <Grid container direction="column" alignContent="flex" >
-            <Grid item direction="row">
+            <Grid container  direction="column" alignContent="center" >
+            <Grid container xs={11}  direction="row" justifyContent="space-between">
             <h5 className={classes.title}> Mes Propriétés(juillet) </h5>
-            <Button className={classes.button1} color="primary">GÉRER MES PROPRIÉTÉS <CreateIcon/></Button>
+            <Button  color="primary">GÉRER MES PROPRIÉTÉS <CreateIcon/></Button>
             </Grid>
-            
-            <Button className={classes.button2} onClick={()=> history.push("/property")} variant="outlined" color="primary">
+            <Grid container xs={11} direction="row" justifyContent="center">
+            <Button className={classes.addButton}  onClick={()=> history.push("/property")} variant="outlined" color="primary">
                 AJOUTER UNE PROPIÉRTÉ  
             </Button>
+            </Grid>
+            <Grid container  direction="column" xs={11}>
             <Paper className={classes.paper}>
-                <h5>Mes simulations</h5> 
+                <h5 className={classes.title}>Mes simulations</h5> 
                 {simulations.map((property, index) => <SimulationCard property ={property} key={index} />)}
             
             </Paper>
+
+            </Grid>
+            <Grid container  direction="column" xs={11}>
+
             {properties.map((property, index) => <SimulationCard property ={property} key={index} />)}
+            </Grid>
              </Grid>
 
     )

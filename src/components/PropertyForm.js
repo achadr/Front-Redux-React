@@ -1,10 +1,24 @@
 import React , {useState} from 'react'
 import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import { useHistory } from 'react-router-dom';
 import { addProperty } from '../store/actionCreators';
 import { useDispatch } from 'react-redux';
+import Grid from '@material-ui/core/Grid'
+
+
+const useStyles = makeStyles((theme) => ({
+  nextButton:{
+    width:"100px",
+    left:"40%"
+  }
+
+  
+
+ 
+}));
 
 
 
@@ -21,6 +35,8 @@ const CssTextField = (TextField);
   ];
   
   export default function PropertyForm() {
+    const classes = useStyles();
+
 
     const history = useHistory();
     const  dispatch = useDispatch()
@@ -36,7 +52,8 @@ const CssTextField = (TextField);
 
     
     return (
-        <form>
+      <Grid xs={12} container direction="column" alignItems="center">
+
             <TextField
               id="standard-select-currency"
               select
@@ -89,7 +106,7 @@ const CssTextField = (TextField);
         id="custom-css-outlined-input"
         onChange={handleChangeForm("city")}
       />
-      <Button variant="contained" color="primary" onClick={handleNext}> Continuer </Button>
-        </form>
+      <Button className={classes.nextButton} variant="contained" color="primary" onClick={handleNext}> Continuer </Button>
+      </Grid>
     )
 }

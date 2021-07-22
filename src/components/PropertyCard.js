@@ -6,6 +6,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
+import CardActions from '@material-ui/core/CardActions';
+
 
 
 
@@ -13,27 +15,28 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     margin:"5px 20px",
-    flexDirection:"row"
   },
   details: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection:"row"
   },
   content: {
     flex: '1 0 auto',
   },
   cover: {
     width: 151,
+    height:100
   },
   button : {
-    left:"900px",
-    width:"100px",
-    height:"20px",
-    padding:"10px"
+    height: "20px",
+    padding:" 10px",
+    top: "70px",
+    right: "5px",
+}
   }
 
  
-}));
+));
 
 export default function SimulationCard({property:{title}}) {
 
@@ -42,18 +45,14 @@ export default function SimulationCard({property:{title}}) {
   return (
 
     <Card className={classes.root} borderRadius={16}>
-            <CardMedia
-        className={classes.cover}
-        image="https://mollinestates.ie/wp-content/uploads/2019/04/Houses-5-.jpg"
-      />
-      <div className={classes.details}>
+            <img className={classes.cover} alt="imaaaaaaaaaaaaaage" src={"https://mollinestates.ie/wp-content/uploads/2019/04/Houses-5-.jpg"}/>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
             {title}
           </Typography>
         </CardContent>
+
         <Button className={classes.button} variant="outlined" color="primary"> MODIFIER <CreateIcon fontSize="small"/> </Button>
-      </div>
   
     </Card>
   );

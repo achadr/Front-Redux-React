@@ -11,7 +11,6 @@ import Property from "./pages/Property"
 function App() {
   return (
     <Router>
-    <div className="App">
       <Switch>
       <Route path="/property">  
         <Property/>
@@ -21,7 +20,6 @@ function App() {
       </Route>
       <Redirect to='/'/>
       </Switch>
-    </div>
     </Router>
   );
 }
